@@ -344,7 +344,7 @@ def get_test_result(model, test_loader, device):
 # 该代码实现了一个函数`predict()`，用于对输入的句子进行预测并输出预测结果。
 def predict(sentence, model_path="bilstm_model_epoch10.pth"):
     # 打印输入句子和预测结果的提示信息。
-    print(f"{sentence}  的预测结果为:", end=" ")
+    # print(f"{sentence}  的预测结果为:", end=" ")
     # 定义标签列表`labels`，包含"真话"和"谣言"两个标签。
     labels = ["真话", "谣言"]
     # 将模型加载到设备`device`上。
@@ -372,10 +372,12 @@ def predict(sentence, model_path="bilstm_model_epoch10.pth"):
         # 根据预测标签的索引从标签列表`labels`中获取预测结果的文本表示。
         labels_pred = torch.argmax(model(datasets), dim=-1).cpu().numpy()[0]
     # 打印预测结果。
-    print(f"{labels[labels_pred]}")
+    # print(f"{labels[labels_pred]}")
+    # print(labels_pred)
 
     # 返回预测结果的文本表示。
-    return labels[labels_pred]
+    # return labels[labels_pred]
+    return labels_pred
 # 综上所述，该代码实现了对输入句子进行预测，并输出预测结果的文本表示。
 
 
@@ -399,5 +401,5 @@ if __name__ == '__main__':
     # get_train_val_txt()
     # train()
     # module_evaluation()
-    rumor = input("请输入待检测话题\n")
+    rumor = input();
     predict(rumor)
