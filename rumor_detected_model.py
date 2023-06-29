@@ -348,7 +348,7 @@ def predict(sentence, model_path="bilstm_model_epoch10.pth"):
     # 定义标签列表`labels`，包含"真话"和"谣言"两个标签。
     labels = ["真话", "谣言"]
     # 将模型加载到设备`device`上。
-    device = torch.device("cuda")
+    device = torch.device("cpu")
     # 调用`get_word_dict()`函数获取词典`word2index_dict`。
     word2index_dict = get_word_dict()
     # 将输入句子中的每个词转换为对应的索引，使用`word2index_dict.get(word, 1)`进行查找，若找不到则使用索引1表示未知词。
@@ -402,4 +402,5 @@ if __name__ == '__main__':
     # train()
     # module_evaluation()
     rumor = input();
-    predict(rumor)
+    a = predict(rumor)
+    print(a)
